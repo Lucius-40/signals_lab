@@ -1,0 +1,1 @@
+python3 cft_edge_detector.py pikachu.png pikachu_edges.png 15

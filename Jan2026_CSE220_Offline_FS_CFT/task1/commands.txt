@@ -1,0 +1,10 @@
+# Basic run on heart.svg (uses default N=150)
+python3 fs_redrawer.py svgs/heart.svg
+
+# Explicit run specifying harmonics (150) and explicit output PNG and GIF filenames
+python3 fs_redrawer.py svgs/heart.svg 150 heart_comparison.png heart_epicycles.gif
+
+# General syntax:
+# python3 fs_redrawer.py <svg_path> <num_harmonics> <png_output_path> <gif_output_path>
+
+python3 fs_redrawer.py svgs/heart.svg 150 output/heart_comparison.png output/heart_epicycles.gif
