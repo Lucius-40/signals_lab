@@ -267,13 +267,19 @@ class FrequencyFilter:
         cx, cy = rows // 2, cols // 2
         real = real.copy()
         imag = imag.copy()
-        for i in range(rows):
-            for j in range(cols):
-                d= np.sqrt((i - cx) ** 2 + (j - cy) ** 2)
-                if d <= r_low or d > r_high : 
-                    real[i, j] = 0
-                    imag[i, j] = 0
-        return real, imag
+        x_idx, y_idx = np.indices((rows,cols))
+        d = np.sqrt((cx - x_idx)**2 + (cy-y_idx)**2)
+        mask = (d > r_low) & (d <= r_high)
+        real = real * mask 
+        imag = imag * mask
+        return real , imag
+        # for i in range(rows):
+        #     for j in range(cols):
+        #         d= np.sqrt((i - cx) ** 2 + (j - cy) ** 2)
+        #         if d <= r_low or d > r_high : 
+        #             real[i, j] = 0
+        #             imag[i, j] = 0
+        # return real, imag
 
     def band_stop(self, real, imag, r_low, r_high):
         """TODO: zero entries with r_low < d(i,j) <= r_high, retain the rest."""
