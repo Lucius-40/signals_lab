@@ -56,7 +56,7 @@ class FourierEpicycles:
         # TODO: implement this method
         c_n = 1 / self.T 
         signal = self.signal * np.exp(-1j * self.omega*n*self.t)
-        integral = np.trapezoid(signal, x=t)
+        integral = np.trapezoid(signal, x=self.t)
         c_n = c_n * integral 
         return c_n
 
