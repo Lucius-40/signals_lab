@@ -265,8 +265,6 @@ class FrequencyFilter:
         """TODO: retain entries with r_low < d(i,j) <= r_high, zero the rest."""
         rows, cols = real.shape
         cx, cy = rows // 2, cols // 2
-        real = real.copy()
-        imag = imag.copy()
         x_idx, y_idx = np.indices((rows,cols))
         d = np.sqrt((cx - x_idx)**2 + (cy-y_idx)**2)
         mask = (d > r_low) & (d <= r_high)
