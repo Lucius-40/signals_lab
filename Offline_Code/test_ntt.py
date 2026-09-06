@@ -1,9 +1,5 @@
 
 #python3 test_ntt.py inputs/4.txt
-
-
-
-
 import os
 import sys
 
